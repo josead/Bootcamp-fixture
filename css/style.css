@@ -1,0 +1,19 @@
+body {
+	margin: 0 auto;
+	width:70%;
+	font-family: 'Roboto', sans-serif;
+}
+
+.clearfix:before,
+.clearfix:after {
+content: " ";
+display: table;
+}
+ 
+.clearfix:after {
+clear: both;
+}
+ 
+.clearfix {
+  *zoom: 1;
+}
