@@ -1,19 +1,68 @@
-body {
-	margin: 0 auto;
-	width:70%;
-	font-family: 'Roboto', sans-serif;
+.box { 
+	float: left; 
+}
+#root { 
+	max-width: 1200px; 
+	margin: 0 auto; 
+}
+#box1 { 
+	width: 80%; 
+}
+#box2 { 
+	width: 20%; 
 }
 
-.clearfix:before,
-.clearfix:after {
-content: " ";
-display: table;
+@font-face {
+    font-family: Cabin;
+    src: url(../resources/Cabin-Regular.otf);
 }
- 
-.clearfix:after {
-clear: both;
+
+/* Laptop/Tablet (1024px) */
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+	#box1 { 
+		width: 100%; 
+	}
+	#box2 { 
+		width: 100%; 
+	}
 }
- 
-.clearfix {
-  *zoom: 1;
+
+/* Tablet Portrait (768px) */
+@media only screen and (min-width: 321px) and (max-width: 1024px) and (orientation: portrait) {
+	#box1 { width: 100%; }
+	#box2 { width: 100%; }
+}
+
+/* Phone Landscape (480px) */
+@media only screen and (min-width: 321px) and (max-width: 480px) and (orientation: landscape) {
+	#box1 { width: 100%; }
+	#box2 { width: 100%; }
+}
+
+/* Phone Portrait (320px) */
+@media only screen and (max-width: 320px) {
+	#box1 { width: 100%; }
+	#box2 { width: 100%; }
+}
+
+.match.current {
+	height: auto;
+	width: 100%;
+	background-color: #FFF;
+	box-shadow: 1px 1px 2px #555;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.country{
+	font-family: Cabin;
+	width: 50%;
+	float: left;
+	text-align: center;
+	font-size: 2rem;
+}
+
+#content {
+	margin: 0 auto;
+	width: 80vw;
 }
