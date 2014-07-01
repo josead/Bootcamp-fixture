@@ -1,7 +1,7 @@
 define(['backbone'],
-  function (Backbone){
+function (Backbone){
 
-    return Backbone.Collection.extend({
+  return Backbone.Collection.extend({
     constructor: function(home,away){
       Backbone.Collection.apply(this);
 

@@ -1,4 +1,4 @@
-define(['backbone','collection/match_events'],
+define(['backbone','collection/MatchEvents'],
   function (Backbone,MatchEvents){
 
   return Backbone.Model.extend({
@@ -11,25 +11,30 @@ define(['backbone','collection/match_events'],
     constructor: function(json, teams){
       Backbone.Model.apply(this);
 
-      this.id = json.match_number;
-      this.loc = json.location;
-      this.date = json.datetime;
-      this.status = json.status;
+      // BORRAR ESTO
+      var teams = {
+        fetchTeam: function(a){ return a;}
+      };
 
-      this.home = {
+      this.set('id',json.match_number);
+      this.set('loc', json.location);
+      this.set('date', json.datetime);
+      this.set('status', json.status);
+
+      this.set('home', {
         team: teams.fetchTeam(json.home_team.code),
         goals: json.home_team.goals,
         winning: false
-      };
-      this.away = {
+      });
+      this.set('away', {
         team: teams.fetchTeam(json.away_team.code),
         goals: json.away_team.goals,
         winning: false
-      };
+      });
 
-      this.events = new MatchEvents(json.home_team_events,json.away_team_events);
+      this.set('events', new MatchEvents(json.home_team_events,json.away_team_events));
 
-      this.winner = json.winner_code;
+      this.set('winner', json.winner_code);
     },
     hasEnded: function(){
       return ( this.status == 'completed');
@@ -38,8 +43,16 @@ define(['backbone','collection/match_events'],
       this.set('status',json.status);
       this.set('winner',json.winner_code);
 
-      this.home.update(json.home_team.goals,json.home_team_events);
-      this.away.update(json.away_team.goals,json.away_team_events);
+      if ( this.get('home').goals < json.home_team.goals )
+        this.trigger('change:home');
+      if ( this.get('away').goals < json.away_team.goals )
+        this.trigger('change:away');
+
+      this.get('home').goals = json.home_team.goals;
+      this.get('away').goals = json.away_team.goals;
+
+      this.get('home').update(json.home_team.goals,json.home_team_events);
+      this.get('away').update(json.away_team.goals,json.away_team_events);
     }
   });
 });

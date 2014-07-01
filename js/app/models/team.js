@@ -12,14 +12,14 @@ define(['backbone'],
     constructor: function(json){
       Backbone.Model.apply(this);
 
-      this.name = json.country;
-      this.code = json.fifa_code;
+      this.set('name', json.country);
+      this.set('code', json.fifa_code);
 
       // fetchFlag?
     },
     settings: function(json){
-      this.id = json.id;
-      this.group = { id: json.group_id , letter: json.group_letter};
+      this.set('id', json.id);
+      this.set('group', { id: json.group_id , letter: json.group_letter});
       this.setStats(json);
     },
     setStats: function(array){
