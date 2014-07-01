@@ -35,6 +35,9 @@ define(['backbone'],
         goal_differential : array.goal_differential
       };
       this.set('stats',stats);
+    },
+    update: function(array){
+      //console.log("Estás updateando " + this.get('code') + " con ",array);
     }
   });
 });

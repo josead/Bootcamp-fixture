@@ -19,24 +19,26 @@ requirejs.config({
         }
     }
   });
-requirejs(['backbone','collection/MatchesCollection','model/team','model/match', 'app/Factory'],
-function (Backbone, MatchesCollection, Team, Match, Factory){
+requirejs(['backbone',
+  'model/team',
+  'model/match',
+
+  'app/Factory',
+
+  'collection/FetchableCollection'],
+function (Backbone, Team, Match, Factory, FetchableCollection){
   // Main
 
   // Factories
-  var teams = new Factory(Team),
-    matches = new Factory(Match);
+  window.teams = new Factory(Team,'fifa_code');
+  window.matches = new Factory(Match,'match_number');
 
+  // Sections / Collections
+  var current = new FetchableCollection(matches,'matches/current'),
+    today = new FetchableCollection(matches,'matches/today'),
+    tomorrow = new FetchableCollection(matches,'matches/tomorrow');
 
-  var template = {fifa_code:"ARG",country:'Argentina'},
-    casos = [];
+  today.fetch();
 
-  casos.push(teams.getInstance(template));
-  casos.push(teams.getInstance(casos[0]));
-  casos.push(teams.getInstance(template));
-
-  console.log(casos);
-  console.log(teams);
-
-  // Set routes
+  today.on('fetched',function(){ console.log(matches);console.log(teams);});
 });

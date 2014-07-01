@@ -4,7 +4,16 @@ function (Backbone){
     _urlBase: 'http://worldcup.sfg.io/',
     url: '',
     fetched: false,
-    forEachModel: function(model){},
+    factory: null,
+    initialize: function(factory,url){
+      //Backbone.Collection.apply(this);
+
+      this.factory = factory;
+      this.url = url;
+    },
+    forEachModel: function(model){
+      this.add(this.factory.getInstance(model));
+    },
     fetch: function(){
       this.fetched = true;
       var self = this;
@@ -17,7 +26,7 @@ function (Backbone){
         .error(function(err){
           console.log("Hubo un error");
           //self.fetch();
-        })
+        });
     },
     fetchOnce: function(){
       if ( this.fetched ) return;

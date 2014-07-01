@@ -1,11 +1,11 @@
-define(['backbone','collection/FetchableCollection','model/match'],
-function (Backbone,FetchableCollection,Match){
+define(['backbone','collection/FetchableCollection'],
+function (Backbone,FetchableCollection){
 
   var matchFactory;
 
   return FetchableCollection.extend({
     forEachModel: function(model){
-      var match = matchFactory.get(model);
+      var match = matchFactory.getInstance(model);
       this.add(match);
     },
     initialize: function(matchFac, url){
