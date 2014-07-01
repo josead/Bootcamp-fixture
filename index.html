@@ -10,85 +10,59 @@
 
 </head>
 <body>
-	<header>
-		<h1> World Cup Fixture </h1>
-	</header>
-	<nav id="sectionsMenu">
-		<!-- time sorted matches, include the currents matches and live changes check -->
-		<a href="#Matches"> Matches </a>
-		<!-- points sorted teams -->
-		<a href="#Groups"> Groups </a>
-		<!-- fixture with all the stages -->
-		<a href="#Fixture"> Fixture </a>
-		<!-- list of kicked teams ( all gray and all that sad style ) -->
-		<a href="#GameOver"> GameOver </a>
-	</nav>
-	<section id="content">
-		
-
-		<!-- testing css -->
-		<div class=' box match current'>
-			<div class="country small">
-				
-				Argentina
-			</div>
-			<div class="country small">Brasil</div>
-		</div>
-
-		<script id='currentMatchTemplate' type='text/template'>
-		<div class='match current'>
-			// < div class='team' ></ div> template this local
-			// < div class='team' ></ div> template this visitor
-			<div class='score'>
-				<%= local_score %> - <%= visitor_score %>
-				// on click shows who goals.
-			</div>
-			<div class="dinamycDetails">
-				// details can be a template too.
-				<%= dDetails %>
-			</div>			
-			<div class="staticDetails">
-				// details can be a template too.
-				<%= sDetails %>
-			</div>
-		</div>
-		</script>
-
-		<script id='staticMatchDetailsTemplate' type='text/template'>
-			<div class="place">
-				// where will be or is played the match
-				// a link to details bout the place
-			</div>
-			// fancy separator 
-			<ul class="arbiteers">
-				// only names perhaps link to google names
-			</ul>
+	<div class="app">
+		<header>
+			<p> World Cup Fixture </p>
+		</header>
+		<nav id="sectionsMenu">
+			<!-- time sorted matches, include the currents matches and live changes check -->
+			<a href="#Matches"> Matches </a>
+			<!-- points sorted teams -->
+			<a href="#Groups"> Groups </a>
+			<!-- fixture with all the stages -->
+			<a href="#Fixture"> Fixture </a>
+			<!-- list of kicked teams ( all gray and all that sad style ) -->
+			<a href="#GameOver"> GameOver </a>
+		</nav>
+			
 
 
-		// every player name comes with his cards before name
-		// Leonel Messi (yellow card)
-		// in case he dont have any 
-		// Leonel Messi
-		// can be performed creating a simple template for every football player
-		</script>
 
-		<script id='dinamycMatchDetailsTemplate' type='text/template'>
-			<ul class='changes'> 
-				// changes on the match.
-				// like: >(red, comes out) Gago | <(green. comes in) Tevez - at 13'
-				// if there isnt changes shows: "No changes made"
-			</ul>
-			// fancy separator 
-			<ul class="cards">
-				// cards given on the match.
-				// if there isnt cards shows: "No cards was shown"
-			</ul>
-		</script>
+			<script id='matchTemplate' type='text/template'>
+				<div class='team home'> 
+					<img class='flag' src='' alt=''>
+					<%= home.team %>
+					<div class='score'>
+						<%= home.goals %>
+					</div>
+				</div>
+				<div class='team away'> 
+					<img class='flag' src='' alt=''>
+					<%= away.team %>
+					<div class='score'>
+						<%= away.goals %>
+					</div>
+				</div>
 
-		
-	</section>
-	<footer></footer>
+				<div class='place'>
+					<%= loc %>
+				</div>
+				<div class='events'>
+				</div>			
+			</script>
 
-  <script data-main="js/app/main" src="js/lib/require.js"></script>
+
+			<script>
+			// every player name comes with his cards before name
+			// Leonel Messi (yellow card)
+			// in case he dont have any 
+			// Leonel Messi
+			// can be performed creating a simple template for every football player
+			</script>
+
+
+		<footer></footer>
+	</div>
+	<script data-main='js/app/main.js' src='js/lib/require.js'></script>
 </body>
 </html>

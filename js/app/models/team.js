@@ -14,8 +14,7 @@ define(['backbone'],
 
       this.set('name', json.country);
       this.set('code', json.fifa_code);
-
-      // fetchFlag?
+      this.set('flag', 'http://www.flags.net/images/smallflags/'+this.code+'0001.GIF');
     },
     settings: function(json){
       this.set('id', json.id);
@@ -34,9 +33,6 @@ define(['backbone'],
         goal_differential : array.goal_differential
       };
       this.set('stats',stats);
-    },
-    fetchFlag: function(){
-      // Maybe
     }
   });
 });
