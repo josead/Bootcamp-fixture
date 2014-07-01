@@ -16,7 +16,7 @@ define(['backbone','collection/MatchEvents'],
         fetchTeam: function(a){ return a;}
       };
 
-      this.set('id',json.match_number);
+      this.id = json.match_number;
       this.set('loc', json.location);
       this.set('date', json.datetime);
       this.set('status', json.status);
@@ -51,8 +51,7 @@ define(['backbone','collection/MatchEvents'],
       this.get('home').goals = json.home_team.goals;
       this.get('away').goals = json.away_team.goals;
 
-      this.get('home').update(json.home_team.goals,json.home_team_events);
-      this.get('away').update(json.away_team.goals,json.away_team_events);
+      this.get('events').update(json.home_team_events.goals,json.away_team_events);
     }
   });
 });

@@ -12,6 +12,7 @@ function (Backbone){
         .done(function(data){
           for (var i = 0; i < data.length; i++)
             self.forEachModel(data[i]);
+          self.trigger('fetched');
         })
         .error(function(err){
           console.log("Hubo un error");

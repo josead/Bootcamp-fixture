@@ -17,7 +17,7 @@ function (Backbone){
 
       this.size = home.length + away.length;
 
-      return _.sortBy(buffer,'time');
+      return _.sortBy(buffer,'id');
     },
     update: function(home,away){
       var _size = home.length + away.length;

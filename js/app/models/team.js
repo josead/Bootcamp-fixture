@@ -12,9 +12,11 @@ define(['backbone'],
     constructor: function(json){
       Backbone.Model.apply(this);
 
+      this.cid = json.fifa_code;
+      this.id = json.fifa_code;
       this.set('name', json.country);
       this.set('code', json.fifa_code);
-      this.set('flag', 'http://www.flags.net/images/smallflags/'+this.code+'0001.GIF');
+      this.set('flag', 'http://www.flags.net/images/smallflags/'+json.fifa_code+'0001.GIF');
     },
     settings: function(json){
       this.set('id', json.id);
