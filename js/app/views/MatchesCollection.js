@@ -9,8 +9,16 @@ function (Backbone, MatchView){
 			this.collection.on('empty', console.log, 'ESTA EMPTY');// TODO
 		},
 
+		_rendered: false,
 		render: function () {
-			this.collection.each(this.addOne, this);
+			if ( this._rendered ) this.$el.empty();
+
+			this._rendered = true;
+
+			if ( this.collection.length > 0 )
+				this.collection.each(this.addOne, this);
+			else
+				this.$el.empty().append('<div class="empty">No matches found</div>');
 			return this;
 		},
 

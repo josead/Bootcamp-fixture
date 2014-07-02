@@ -220,3 +220,8 @@ li:hover {
 	animation-name: colours;
 	/*animation-timing-function: ease;*/
 }
+
+.empty {
+	font-weight: bold;
+	text-align: center;
+}

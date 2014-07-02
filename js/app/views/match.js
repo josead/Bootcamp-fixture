@@ -21,9 +21,7 @@ function (Backbone,eventsView) {
 			'click': 'toggleEvents'
 		},
 
-		_rendered: false,
 		render: function() {
-			this._rendered = true;
 
 			this.$el.html( this.template(this.model.toJSON()) );
 			this.$el.attr('status',this.model.get('status'));
