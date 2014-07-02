@@ -13,6 +13,7 @@
 @media only screen and (min-width: 600px) and (orientation: landscape) {
 	.app {
 		width: 600px;
+		
 	}
 }
 
@@ -56,8 +57,6 @@ header h1 {
 	font-size: 50px;
 }
 
-
-
 .match {
 	margin-bottom:20px;
 	height: auto;
@@ -99,17 +98,37 @@ header h1 {
 	padding-left: 2px;
 }
 
-
+.events {
+	font-size: 10px;
+	display:none;
+}
 
 .events .event.home span.time{
 	text-align: center;
 	float: right;
 	padding-right: 50%;
+	margin-left: 10px;
+	margin-right: -16px;
 }
 .events .event.away span.time{
 	text-align: center;
 	float: left;
 	padding-left: 50%;
+	margin-right: 5px;
+}
+
+.events .event{
+	display: block;
+	padding-left:2px;
+	padding-right:2px;
+}
+
+.event.home{
+	text-align: right;
+}
+
+.event.home span.event-ico {
+	//failure
 }
 
 .event-ico {
@@ -119,6 +138,7 @@ header h1 {
 	background-size: 15px;
 	padding-left: 17px;
 }
+
 
 span.event-ico.yellow-card{
 	background-image: url('../resources/yellow.png');
@@ -137,10 +157,7 @@ span.event-ico.substitution-in{
 span.event-ico.goal , span.event-ico.goal-penalty{
 	background-image: url('../resources/goal.png');
 }
-.events {
-	font-size: 10px;
-	display:none;
-}
+
 
 #sectionsMenu ul {
 	

@@ -22,7 +22,6 @@ function(Backbone) {
 		},
 
 		addOne: function(e) {
-			//console.log(e);
 			console.log(e);
 			this.$el.append( this.template(e.toJSON()) );
 		}
