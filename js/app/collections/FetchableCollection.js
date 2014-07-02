@@ -5,11 +5,11 @@ function (Backbone){
     url: '',
     fetched: false,
     factory: null,
-    initialize: function(factory,url){
-      //Backbone.Collection.apply(this);
-
+    constructor: function(factory,url){
+      Backbone.Collection.apply(this);
       this.factory = factory;
       this.url = url;
+      this.initialize(factory,url);
     },
     forEachModel: function(model){
       this.add(this.factory.getInstance(model));

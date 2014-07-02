@@ -22,4 +22,4 @@ function (Backbone, MatchView){
 			this.$el.append(matchView.el);
 		}
 	});
-})
+});
