@@ -117,4 +117,5 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
   collections.teams.on('fetched',function(){ routes.changeView(views.teams); });
   //collections.current.on('fetched',function(){ routes.changeView(views.current); });
 
+  if ( !window.location.hash ) window.location.hash = '#matches/today';
 });
