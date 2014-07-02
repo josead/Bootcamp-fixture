@@ -25,8 +25,10 @@ requirejs(['backbone',
 
   'app/Factory',
 
-  'collection/FetchableCollection'],
-function (Backbone, Team, Match, Factory, FetchableCollection){
+  'collection/FetchableCollection',
+
+  'view/MatchesCollection'],
+function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
   // Main
 
   // Factories
@@ -36,9 +38,22 @@ function (Backbone, Team, Match, Factory, FetchableCollection){
   // Sections / Collections
   var current = new FetchableCollection(matches,'matches/current'),
     today = new FetchableCollection(matches,'matches/today'),
-    tomorrow = new FetchableCollection(matches,'matches/tomorrow');
+    tomorrow = new FetchableCollection(matches,'matches/tomorrow'),
+  // Views
+    todayView = new MatchesView({collection: today});
 
   today.fetch();
 
-  today.on('fetched',function(){ console.log(matches);console.log(teams);});
+  today.on('fetched',function(){ 
+    console.log(matches);
+    console.log(teams);
+    console.log(todayView);
+    todayView.render();
+
+  });
+
+ 
+    
+  //$('.content').append(todayView.el);
+
 });
