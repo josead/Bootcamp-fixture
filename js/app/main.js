@@ -59,8 +59,8 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
     routes: {
       "matches/:when":        "matches",
       "groups":               "groups",
-      "team":                 "team",
-      "teams/:query":         "teams",
+      "teams":                "teams",
+      //"team/:query":          "team",
     },
     matchesPages:['current','today','tomorrow','all'],
 
@@ -70,7 +70,13 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
         this.currentView.$el.hide();
       
       this.currentView = newView;
-      this.currentView.render();
+
+      if ( this.currentView._rendered ) {
+        this.currentView.$el.show();
+      } else {
+        $('.content').append(this.currentView.render().$el);
+        this.currentView.$el.show();
+      }
     },
 
     // Pages
@@ -84,13 +90,18 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
     groups: function() {
       //collections.today.fetchOnce();
     },
+    teams: function(){
+      collections.teams.fetchOnce();
+    }
   });
   var routes = new Workspace();
   Backbone.history.start();
 
-
-  collections.all.on('fetched',function(){
-    $('.content').append(views.all.el);
-  });
+  collections.current.on('fetched',function(){ routes.changeView(views.current); });
+  collections.today.on('fetched',function(){ routes.changeView(views.today); });
+  collections.tomorrow.on('fetched',function(){ routes.changeView(views.tomorrow); });
+  collections.all.on('fetched',function(){ routes.changeView(views.all); });
+  collections.teams.on('fetched',function(){ routes.changeView(views.teams); });
+  //collections.current.on('fetched',function(){ routes.changeView(views.current); });
 
 });
