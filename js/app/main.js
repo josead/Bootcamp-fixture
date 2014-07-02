@@ -63,7 +63,7 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
   var Workspace = Backbone.Router.extend({
     routes: {
       "matches/:when":        "matches",
-      "groups":               "groups",
+      //"groups":               "groups",
       "teams":                "teams",
       //"team/:query":          "team",
     },

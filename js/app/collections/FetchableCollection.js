@@ -9,6 +9,7 @@ function (Backbone){
       Backbone.Collection.apply(this);
       this.factory = factory;
       this.url = url;
+      
       this.initialize(factory,url);
     },
     forEachModel: function(model){
