@@ -29,7 +29,7 @@ html {
   height: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-		overflow: auto;
+	overflow: auto;
   zoom: 1;
 }
 
@@ -99,6 +99,21 @@ header h1 {
 	padding-left: 2px;
 }
 
+.events .event.away span {
+	float
+}
+
+.events .event.home span.time{
+	text-align: center;
+	float: right;
+	padding-right: 50%;
+}
+.events .event.away span.time{
+	text-align: center;
+	float: left;
+	padding-left: 50%;
+}
+
 .event-ico {
 	width: 15px;
 	height: 15px;
@@ -107,14 +122,23 @@ header h1 {
 	padding-left: 17px;
 }
 
-span.event-ico.ycard{
+span.event-ico.yellow-card{
 	background-image: url('../resources/ycard.png');
 }
 
-span.event-ico.rcard{
+span.event-ico.red-card{
 	background-image: url('../resources/rcard.png');
 }
 
+span.event-ico.substitution-out{
+	background-image: url('../resources/rcard.png');
+}
+span.event-ico.substitution-in{
+	background-image: url('../resources/rcard.png');
+}
+span.event-ico.goal , span.event-ico.goal-penalty{
+	background-image: url('../resources/rcard.png');
+}
 .events {
 	font-size: 10px;
 	display:none;
