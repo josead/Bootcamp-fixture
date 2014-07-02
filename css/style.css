@@ -10,9 +10,9 @@
 
 
 /* Laptop/Tablet (1024px) */
-@media only screen and (min-width: 500px) and (orientation: landscape) {
+@media only screen and (min-width: 600px) and (orientation: landscape) {
 	.app {
-		width: 500px;
+		width: 600px;
 	}
 }
 
@@ -52,10 +52,15 @@ body {
 	margin: 0 auto;
 }
 
-h1 {
+header h1 {
 	font-family: WorldCup;
 	text-align: center;
+	color: #FFF;
+	text-shadow: 0px 0px 10px  #df0b00;
+	font-size: 50px;
 }
+
+
 
 .match {
 	margin-bottom:20px;
@@ -77,11 +82,6 @@ h1 {
 
 .team .score {
 	font-size: 1rem;
-}
-
-
-ul {
-	list-style: none;
 }
 
 .event-ico {
@@ -119,3 +119,42 @@ span.event-ico.rcard{
 }
 
 
+ul {
+	
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	display: block;
+	height: auto;
+	background-color: #002b70;
+	border-radius: 20px 20px 0px 0px;
+	border-bottom: 2px solid #FFF ;
+  box-shadow: 0 0 3px #002b52;
+
+}
+
+li {
+	margin-top: -5px;
+
+	height: auto;
+	width: auto;
+	padding-top: 10px;
+	padding-bottom: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: inline-block;
+	background-color: #002b52;
+	border: 2px solid #FFF;
+	margin-bottom: 5px;
+	border-bottom-width: 0px;
+	border-top-width: 0px;
+	border-radius: 20px 20px 0px 0px;
+	color: #FFF;
+  box-shadow: 0 0 3px #002b52;
+
+}
+
+li:hover {
+	color: #0a487c;
+	background-color: #FFF;
+}
