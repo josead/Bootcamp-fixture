@@ -159,3 +159,18 @@ li:hover {
 	color: #0a487c;
 	background-color: #FFF;
 }
+
+.match[status="future"] .team{
+	opacity: 0.7;
+}
+.match[status="future"] .score,
+.match[status="future"] .teamname[alt="TBD"]{
+	display:none;
+}
+
+.match[status="in-process"] {
+	
+}
+.match[status="completed"] {
+	
+}

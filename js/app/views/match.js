@@ -1,5 +1,5 @@
 define(['backbone','view/MatchEvents'],
-function(Backbone,eventsView) {
+function (Backbone,eventsView) {
 	return Backbone.View.extend({
 
 		tagName: 'div',
@@ -8,7 +8,7 @@ function(Backbone,eventsView) {
 
 		$elements: {},
 
-		ViewEvents: new eventsView, 
+		viewEvents: new eventsView,
 
 		initialize: function() {
 			this.model.on('change:home', this.updateHome, this);
@@ -24,31 +24,32 @@ function(Backbone,eventsView) {
 		render: function() {
 			console.log(this.model);
 			this.$el.html( this.template(this.model.toJSON()) );
+			this.$el.attr('status',this.model.get('status'));
+
 			this.$elements.home = this.$el.find('.home');
 			this.$elements.away = this.$el.find('.away');
-			//ViewEvents.render($elements.events);
+			//viewEvents.render($elements.events);
 			return this;
 		},
 
 		updateHome: function() {
-			this.$elements.home.html( this.template(this.model.home.toJSON()) );
-		},		
+			this.$elements.home.html( this.template(this.model.get('home').toJSON()) );
+		},
 
 		updateAway: function() {
-			this.$elements.away.html( this.template(this.model.away.toJSON()) );
+			this.$elements.away.html( this.template(this.model.get('away').toJSON()) );
 		},
 
 		updateStatus: function() {
-			//TODO
-			//toggle class maybe not
-			this.$el.toggleClass();
+			this.$el.attr('status',this.model.get('status'));
 		},
 
 		toggleEvents: function() {
+			if ( this.model.get('status') == 'future' ) return;
 			this.$el.find('.events').slideToggle();
 		}
 
 
 
 	});
-})
+});

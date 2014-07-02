@@ -19,11 +19,13 @@
 
 			<ul>
 				<!-- time sorted matches, include the currents matches and live changes check -->
-				<li> Matches Today </li>
+				<li><a href="#matches/today">Matches Today</a></li>
 				<!-- points sorted teams -->
-				<li> Now Playing </li>
+				<li><a href="#matches/current">Now Playing</a></li>
 				<!-- fixture with all the stages -->
-				<li> Next Matches </li>
+				<li><a href="#matches/tomorrow">Next Matches</a></li>
+
+				<li><a href="#matches/all">All</a></li>
 				
 			</ul>
 		
@@ -36,15 +38,15 @@
 
 			<script id='matchTemplate' type='text/template'>
 				<div class='team home'> 
-					<img class='flag' src=<%= home.team.get('flag') %> alt=''><br>
-					<%= home.team.get('name') %>
+					<img class='flag' src='<%= home.team.get('flag') %>' alt=''><br>
+					<span class='teamname' alt='<%= home.team.get('code') %>'><%= home.team.get('name') %></span>
 					<div class='score'>
 						<%= home.goals %>
 					</div>
 				</div>
 				<div class='team away'> 
-					<img class='flag' src=<%= away.team.get('flag')  %> alt=''><br>
-					<%= away.team.get('name')  %>
+					<img class='flag' src='<%= away.team.get('flag')  %>' alt=''><br>
+					<span class='teamname' alt='<%= away.team.get('code') %>'><%= away.team.get('name') %></span>
 					<div class='score'>
 						<%= away.goals %>
 					</div>

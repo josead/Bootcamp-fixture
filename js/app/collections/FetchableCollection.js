@@ -15,12 +15,13 @@ function (Backbone){
       this.add(this.factory.getInstance(model));
     },
     fetch: function(){
-      this.fetched = true;
       var self = this;
       $.get( this._urlBase + this.url)
         .done(function(data){
           for (var i = 0; i < data.length; i++)
             self.forEachModel(data[i]);
+
+          this.fetched = true;
           self.trigger('fetched');
         })
         .error(function(err){
@@ -29,7 +30,7 @@ function (Backbone){
         });
     },
     fetchOnce: function(){
-      if ( this.fetched ) return;
+      if ( this.fetched ) { this.trigger('fetched'); return;}
       this.fetch();
     }
   });

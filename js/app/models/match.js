@@ -19,12 +19,12 @@ define(['backbone','collection/MatchEvents'],
       this.set('status', json.status);
 
       this.set('home', {
-        team: window.teams.getInstance({fifa_code:json.home_team.code,country:json.home_team.country}),
+        team: window.app.teams.getInstance({fifa_code:json.home_team.code,country:json.home_team.country}),
         goals: json.home_team.goals,
         winning: false
       });
       this.set('away', {
-        team: window.teams.getInstance({fifa_code:json.away_team.code,country:json.away_team.country}),
+        team: window.app.teams.getInstance({fifa_code:json.away_team.code,country:json.away_team.country}),
         goals: json.away_team.goals,
         winning: false
       });
