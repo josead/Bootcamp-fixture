@@ -57,6 +57,8 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
 
   // Routes
 
+  var $content = $('.content');
+
   var Workspace = Backbone.Router.extend({
     routes: {
       "matches/:when":        "matches",
@@ -76,21 +78,24 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
       if ( this.currentView._rendered ) {
         this.currentView.$el.show();
       } else {
-        $('.content').append(this.currentView.render().$el);
+        $content.append(this.currentView.render().$el);
         this.currentView.$el.show();
       }
+
+      $content.removeClass('loading');
     },
 
     // Pages
     matches: function(when) {
       if ( ! _.contains(this.matchesPages, when) ) return;
       
+      $content.addClass('loading');
+
       if ( when == 'current' )
         collections[when].fetch();
       else
         collections[when].fetchOnce();
 
-      this.changeView(views[when]);
     },
     /*groups: function() {
       //collections.today.fetchOnce();
