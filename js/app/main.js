@@ -57,7 +57,8 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
 
   // Routes
 
-  var $content = $('.content');
+  var $content = $('.content'),
+    $menu = $('#sectionsMenu');
 
   var Workspace = Backbone.Router.extend({
     routes: {
@@ -72,7 +73,7 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
     changeView: function(newView){
       if ( this.currentView !== null )
         this.currentView.$el.hide();
-      
+
       this.currentView = newView;
 
       if ( this.currentView._rendered ) {
@@ -96,6 +97,8 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
       else
         collections[when].fetchOnce();
 
+      $menu.find(".active").removeClass('active');
+      $menu.find('a[href="'+ window.location.hash +'"]').parent().addClass('active');
     },
     /*groups: function() {
       //collections.today.fetchOnce();
