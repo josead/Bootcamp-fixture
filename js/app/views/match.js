@@ -8,9 +8,10 @@ function (Backbone,eventsView) {
 
 		$elements: {},
 
-		viewEvents: new eventsView,
+		viewEvents: '',
 
 		initialize: function() {
+			viewEvents = new eventsView({collection: this.model.get('events')});
 			this.model.on('change:home', this.updateHome, this);
 			this.model.on('change:away', this.updateAway, this);
 			this.model.on('change:status', this.updateStatus, this);
@@ -25,10 +26,10 @@ function (Backbone,eventsView) {
 
 			this.$el.html( this.template(this.model.toJSON()) );
 			this.$el.attr('status',this.model.get('status'));
-
+			viewEvents.render();
+			this.$el.append(viewEvents.el);
 			this.$elements.home = this.$el.find('.home');
 			this.$elements.away = this.$el.find('.away');
-			//viewEvents.render($elements.events);
 			return this;
 		},
 

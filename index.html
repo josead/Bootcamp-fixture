@@ -58,11 +58,15 @@
 					<span class='date'><%= date %></span>
 				</div>
 				<div class='events'>
-				Eventos del partido:
+					
 				</div>			
 			</script>
 
-
+			<script id='eventTemplate' type='text/template'>
+				<span class='event-ico <%= type_of_event %>'></span> <%= player %> 
+				<span class='time'> <%= time %>´ </span>
+			</script>
+			
 			<script>
 			// every player name comes with his cards before name
 			// Leonel Messi (yellow card)
