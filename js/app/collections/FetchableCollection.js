@@ -21,7 +21,7 @@ function (Backbone){
           for (var i = 0; i < data.length; i++)
             self.forEachModel(data[i]);
 
-          this.fetched = true;
+          self.fetched = true;
           self.trigger('fetched');
         })
         .error(function(err){

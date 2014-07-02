@@ -34,8 +34,6 @@ html {
 }
 
 body {
-
-
 	background-image: url(../resources/slide.png);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -44,8 +42,6 @@ body {
 	margin-top: -21px;
 	padding-bottom: 20px;
 	min-height: 100%;
-
-
 }
 
 .app {
@@ -185,4 +181,41 @@ li:hover {
 }
 .match[status="completed"] {
 	
+}
+
+.content {
+	position:relative;
+}
+
+.content.loading > * {
+	opacity: 0.6;
+}
+
+.content.loading .loader {
+	display:block;
+}
+
+@keyframes colours {
+	0% {color: rgba(230,109,29,1);}
+	50% {color: rgba(255,226,0,1) ;}
+	100% {color: rgba(230,109,29,1);}
+}
+
+.loader {
+	opacity: 1 !important;
+	display:none;
+	position:absolute;
+	left:40%;
+	top:100px;
+	font-family: WorldCup;
+	font-weight: bold;
+	font-size: 35px;
+
+	text-shadow: 0px 0px 10px  #000;
+
+	animation-direction: normal;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-name: colours;
+	/*animation-timing-function: ease;*/
 }

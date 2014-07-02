@@ -53,6 +53,8 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
   views.tomorrow = new MatchesView({collection: collections.tomorrow});
   views.all = new MatchesView({collection: collections.all});
 
+  //view.teams = new TeamsView({collection: collections.teams});
+
   // Routes
 
   var Workspace = Backbone.Router.extend({
@@ -81,15 +83,18 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
 
     // Pages
     matches: function(when) {
-      if ( _.contains(this.matchesPages, when) ){
+      if ( ! _.contains(this.matchesPages, when) ) return;
+      
+      if ( when == 'current' )
+        collections[when].fetch();
+      else
         collections[when].fetchOnce();
 
-        this.changeView(views[when]);
-      }
+      this.changeView(views[when]);
     },
-    groups: function() {
+    /*groups: function() {
       //collections.today.fetchOnce();
-    },
+    },*/
     teams: function(){
       collections.teams.fetchOnce();
     }
