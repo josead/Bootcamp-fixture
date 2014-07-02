@@ -66,6 +66,7 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
       //"groups":               "groups",
       "teams":                "teams",
       //"team/:query":          "team",
+      "*actions":             "default", 
     },
     matchesPages:['current','today','tomorrow','all'],
 
@@ -96,18 +97,22 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
         collections[when].fetch();
       else
         collections[when].fetchOnce();
-
-      $menu.find(".active").removeClass('active');
-      $menu.find('a[href="'+ window.location.hash +'"]').parent().addClass('active');
     },
     /*groups: function() {
       //collections.today.fetchOnce();
     },*/
     teams: function(){
       collections.teams.fetchOnce();
+    },
+    default: function(){
+      this.matches('today');
     }
   });
   var routes = new Workspace();
+  routes.on('route',function(){
+    $menu.find(".active").removeClass('active');
+    $menu.find('a[href="'+ window.location.hash +'"]').parent().addClass('active');
+  });
   Backbone.history.start();
 
   collections.current.on('fetched',function(){ routes.changeView(views.current); });
@@ -117,5 +122,4 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
   collections.teams.on('fetched',function(){ routes.changeView(views.teams); });
   //collections.current.on('fetched',function(){ routes.changeView(views.current); });
 
-  if ( !window.location.hash ) window.location.hash = '#matches/today';
 });

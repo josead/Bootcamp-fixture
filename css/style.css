@@ -8,29 +8,35 @@
     src: url(../resources/wcfont.ttf);
 }
 
+.app {
+	margin: 0 auto;
+	width: 95%;
+}
 
 /* Laptop/Tablet (1024px) */
 @media only screen and (min-width: 600px) and (orientation: landscape) {
 	.app {
 		width: 600px;
-		
+	}
+	header h1 {
+		font-size:50px;
 	}
 }
 
-
 html {
-	background-image: rgb(230,109,29); /* Old browsers */
-	background-image: -moz-linear-gradient(top, rgba(230,109,29,1) 0%, rgba(255,226,0,1) 100%); /* FF3.6+ */
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(230,109,29,1)), color-stop(100%,rgba(255,226,0,1))); /* Chrome,Safari4+ */
-	background-image: -webkit-linear-gradient(top, rgba(230,109,29,1) 0%,rgba(255,226,0,1) 100%); /* Chrome10+,Safari5.1+ */
-	background-image: -o-linear-gradient(top, rgba(230,109,29,1) 0%,rgba(255,226,0,1) 100%); /* Opera 11.10+ */
-	background-image: -ms-linear-gradient(top, rgba(230,109,29,1) 0%,rgba(255,226,0,1) 100%); /* IE10+ */
-	background-image: linear-gradient(to bottom, rgba(230,109,29,1) 0%,rgba(255,226,0,1) 100%); /* W3C */
+	background: rgb(230,109,29); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(230,109,29,1) 0%, rgba(255,226,0,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(230,109,29,1)), color-stop(100%,rgba(255,226,0,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(230,109,29,1) 0%,rgba(255,226,0,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(230,109,29,1) 0%,rgba(255,226,0,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(230,109,29,1) 0%,rgba(255,226,0,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(230,109,29,1) 0%,rgba(255,226,0,1) 100%); /* W3C */
 	width: 100%;
   height: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	overflow: auto;
+	overflow-x: hidden;
   zoom: 1;
 }
 
@@ -45,16 +51,12 @@ body {
 	min-height: 100%;
 }
 
-.app {
-	margin: 0 auto;
-}
-
 header h1 {
 	font-family: WorldCup;
 	text-align: center;
 	color: #FFF;
-	text-shadow: 0px 0px 10px  #df0b00;
-	font-size: 50px;
+	text-shadow: 0 0 10px #df0b00;
+	font-size: 40px;
 }
 
 .match {
@@ -99,7 +101,7 @@ header h1 {
 }
 
 .events {
-	font-size: 10px;
+	font-size: 13px;
 	display:none;
 }
 
@@ -128,7 +130,7 @@ header h1 {
 }
 
 .event.home span.event-ico {
-	//failure
+	/*failure*/
 }
 
 .event-ico {
@@ -141,21 +143,21 @@ header h1 {
 
 
 span.event-ico.yellow-card{
-	background-image: url('../resources/yellow.png');
+	background-image: url('../resources/icons/yellow.png');
 }
 
 span.event-ico.red-card{
-	background-image: url('../resources/red.png');
+	background-image: url('../resources/icons/red.png');
 }
 
 span.event-ico.substitution-out{
-	background-image: url('../resources/out.png');
+	background-image: url('../resources/icons/out.png');
 }
 span.event-ico.substitution-in{
-	background-image: url('../resources/in.png');
+	background-image: url('../resources/icons/in.png');
 }
 span.event-ico.goal , span.event-ico.goal-penalty{
-	background-image: url('../resources/goal.png');
+	background-image: url('../resources/icons/goal.png');
 }
 
 
@@ -184,12 +186,11 @@ span.event-ico.goal , span.event-ico.goal-penalty{
 	display: inline-block;
 	background-color: #002b52;
 	border: 2px solid #FFF;
-	margin-bottom: 5px;
 	border-bottom-width: 0px;
 	border-top-width: 0px;
 	border-radius: 20px 20px 0px 0px;
 	color: #FFF;
-  box-shadow: 0 0 3px #002b52;
+  box-shadow: 0 -2px 3px #002b52;
 }
 
 #sectionsMenu li a {
@@ -229,6 +230,16 @@ span.event-ico.goal , span.event-ico.goal-penalty{
 	display:block;
 }
 
+@-webkit-keyframes colours {
+	0% {color: rgba(230,109,29,1);}
+	50% {color: rgba(255,226,0,1) ;}
+	100% {color: rgba(230,109,29,1);}
+}
+@-moz-keyframes colours {
+	0% {color: rgba(230,109,29,1);}
+	50% {color: rgba(255,226,0,1) ;}
+	100% {color: rgba(230,109,29,1);}
+}
 @keyframes colours {
 	0% {color: rgba(230,109,29,1);}
 	50% {color: rgba(255,226,0,1) ;}
@@ -248,11 +259,20 @@ span.event-ico.goal , span.event-ico.goal-penalty{
 
 	text-shadow: 0px 0px 10px  #000;
 
+	-webkit-animation-direction: normal;
+	-webkit-animation-duration: 5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-name: colours;
+
+	-moz-animation-direction: normal;
+	-moz-animation-duration: 5s;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-name: colours;
+	
 	animation-direction: normal;
 	animation-duration: 5s;
 	animation-iteration-count: infinite;
 	animation-name: colours;
-	/*animation-timing-function: ease;*/
 }
 
 .empty {
