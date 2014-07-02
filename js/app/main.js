@@ -110,8 +110,11 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
   });
   var routes = new Workspace();
   routes.on('route',function(){
+    if ( !window.location.hash ) return;
+
     $menu.find(".active").removeClass('active');
-    $menu.find('a[href="'+ window.location.hash +'"]').parent().addClass('active');
+    $menu.find('a[href="'+ window.location.hash +'"]')
+      .parent().addClass('active');
   });
   Backbone.history.start();
 
