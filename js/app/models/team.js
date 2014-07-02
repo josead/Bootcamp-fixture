@@ -16,10 +16,8 @@ define(['backbone'],
       this.id = json.fifa_code;
       this.set('name', json.country);
       this.set('code', json.fifa_code);
-      if ( json.fifa_code == 'TBD' )
-        this.set('flag', 'resources/TBD.png');
-      else
-        this.set('flag', 'http://www.sciencekids.co.nz/images/pictures/flags96/'+this.get('name').replace(' ','_')+'.jpg');
+
+      this.getFlag();
     },
     settings: function(json){
       this.set('id', json.id);
@@ -38,6 +36,25 @@ define(['backbone'],
         goal_differential : array.goal_differential
       };
       this.set('stats',stats);
+    },
+    getFlag: function(){
+      var flg = this.get('name'),
+        mapped = this._parseMap[this.get('code')];
+
+      if ( mapped )
+        if ( mapped === true ){
+          this.set('flag', 'resources/flags/'+this.get('code')+'.jpg'); return;
+        } else
+          flg = mapped;
+
+      this.set('flag', 'http://www.sciencekids.co.nz/images/pictures/flags96/'+ flg.replace(' ','_') +'.jpg');
+    },
+    _parseMap: {
+      USA: 'United States',
+      KOR: 'South Korea',
+      TBD: true,
+      BIH: true,
+      CIV: true
     },
     update: function(array){
       //console.log("Estás updateando " + this.get('code') + " con ",array);
