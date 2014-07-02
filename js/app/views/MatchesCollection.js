@@ -11,18 +11,17 @@ function (Backbone, MatchView){
 
 		_rendered: false,
 		render: function () {
-			if ( this._rendered ) this.$el.empty();
+			if ( this._rendered ) return;
 
 			this._rendered = true;
 
-			if ( this.collection.length > 0 )
-				this.collection.each(this.addOne, this);
-			else
+			if ( this.collection.length === 0 )
 				this.$el.empty().append('<div class="empty">No matches found</div>');
 			return this;
 		},
 
 		addOne: function (match) {
+			//this.$el.find('.empty').remove();
 			var matchView = new MatchView({ model: match });
 			this.$el.append(matchView.render().el);
 		}

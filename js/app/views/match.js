@@ -11,8 +11,6 @@ function (Backbone,EventsView) {
 		viewEvents: null,
 
 		initialize: function() {
-			//console.log(this.model.get('events'));
-			
 			this.viewEvents = new EventsView({collection: this.model.get('events')});
 			this.model.on('change:home', this.updateHome, this);
 			this.model.on('change:away', this.updateAway, this);
