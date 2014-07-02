@@ -99,9 +99,7 @@ header h1 {
 	padding-left: 2px;
 }
 
-.events .event.away span {
-	float
-}
+
 
 .events .event.home span.time{
 	text-align: center;
@@ -123,21 +121,21 @@ header h1 {
 }
 
 span.event-ico.yellow-card{
-	background-image: url('../resources/ycard.png');
+	background-image: url('../resources/yellow.png');
 }
 
 span.event-ico.red-card{
-	background-image: url('../resources/rcard.png');
+	background-image: url('../resources/red.png');
 }
 
 span.event-ico.substitution-out{
-	background-image: url('../resources/rcard.png');
+	background-image: url('../resources/out.png');
 }
 span.event-ico.substitution-in{
-	background-image: url('../resources/rcard.png');
+	background-image: url('../resources/in.png');
 }
 span.event-ico.goal , span.event-ico.goal-penalty{
-	background-image: url('../resources/rcard.png');
+	background-image: url('../resources/goal.png');
 }
 .events {
 	font-size: 10px;
