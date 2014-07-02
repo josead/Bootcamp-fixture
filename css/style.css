@@ -197,24 +197,50 @@ span.event-ico.goal , span.event-ico.goal-penalty{
 }
 
 .match[status="future"] .team{
-	opacity: 0.7;
+	opacity: 0.6;
 }
 .match[status="future"] .score,
 .match[status="future"] .teamname[alt="TBD"]{
 	display:none;
 }
 
-.match[status="in-process"] {
-	
+/* Circle status */
+
+.circleStatus {
+	position:absolute;
+	right:10px;
+	width: 10px;
+	height: 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 2px black;
+	background: black;
 }
-.match[status="completed"] {
+.match[status="future"] .circleStatus {
+	background-color: gray;
+}
+.match[status="completed"] .circleStatus {
+	background-color: green;
+}
+.match[status="in-process"] .circleStatus {
+	-webkit-animation-direction: normal;
+	-webkit-animation-duration: 5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-name: bgcolours;
+
+	-moz-animation-direction: normal;
+	-moz-animation-duration: 5s;
+	-moz-animation-iteration-count: infinite;
+	-moz-animation-name: bgcolours;
 	
+	animation-direction: normal;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-name: bgcolours;
 }
 
 .content {
 	position:relative;
 }
-
 
 .content.loading > * {
 	opacity: 0.6;
@@ -239,6 +265,22 @@ span.event-ico.goal , span.event-ico.goal-penalty{
 	0% {color: rgba(230,109,29,1);}
 	50% {color: rgba(255,226,0,1) ;}
 	100% {color: rgba(230,109,29,1);}
+}
+
+@-webkit-keyframes bgcolours {
+	0% {background-color: rgba(230,109,29,1);}
+	50% {background-color: rgba(255,226,0,1) ;}
+	100% {background-color: rgba(230,109,29,1);}
+}
+@-moz-keyframes bgcolours {
+	0% {background-color: rgba(230,109,29,1);}
+	50% {background-color: rgba(255,226,0,1) ;}
+	100% {background-color: rgba(230,109,29,1);}
+}
+@keyframes bgcolours {
+	0% {background-color: rgba(230,109,29,1);}
+	50% {background-color: rgba(255,226,0,1) ;}
+	100% {background-color: rgba(230,109,29,1);}
 }
 
 .loader {
