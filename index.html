@@ -36,24 +36,25 @@
 
 			<script id='matchTemplate' type='text/template'>
 				<div class='team home'> 
-					<img class='flag' src='' alt=''>
-					<%= home.team %>
+					<img class='flag' src=<%= home.team.get('flag') %> alt=''><br>
+					<%= home.team.get('name') %>
 					<div class='score'>
 						<%= home.goals %>
 					</div>
 				</div>
 				<div class='team away'> 
-					<img class='flag' src='' alt=''>
-					<%= away.team %>
+					<img class='flag' src=<%= away.team.get('flag')  %> alt=''><br>
+					<%= away.team.get('name')  %>
 					<div class='score'>
 						<%= away.goals %>
 					</div>
 				</div>
 
 				<div class='place'>
-					<%= loc %>
+					<i><%= loc %></i>
 				</div>
 				<div class='events'>
+				Eventos del partido:
 				</div>			
 			</script>
 

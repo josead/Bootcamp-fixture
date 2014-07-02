@@ -39,21 +39,22 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
   var current = new FetchableCollection(matches,'matches/current'),
     today = new FetchableCollection(matches,'matches/today'),
     tomorrow = new FetchableCollection(matches,'matches/tomorrow'),
+    allmatches = new FetchableCollection(matches,'matches'),
   // Views
-    todayView = new MatchesView({collection: today});
+    allView = new MatchesView({collection: allmatches});
 
-  today.fetch();
+  allmatches.fetch();
 
-  today.on('fetched',function(){ 
+  allmatches.on('fetched',function(){ 
     console.log(matches);
     console.log(teams);
-    console.log(todayView);
-    todayView.render();
-
   });
+
+    allView.render();
+    console.log('__________________');
 
  
     
-  //$('.content').append(todayView.el);
+  $('.content').append(allView.el);
 
 });

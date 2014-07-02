@@ -16,7 +16,7 @@ define(['backbone'],
       this.id = json.fifa_code;
       this.set('name', json.country);
       this.set('code', json.fifa_code);
-      this.set('flag', 'http://www.flags.net/images/smallflags/'+json.fifa_code+'0001.GIF');
+      this.set('flag', '"http://www.sciencekids.co.nz/images/pictures/flags96/'+this.get('name')+'.jpg"');
     },
     settings: function(json){
       this.set('id', json.id);

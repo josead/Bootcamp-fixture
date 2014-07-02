@@ -18,7 +18,7 @@ function(Backbone,eventsView) {
 		},
 
 		events: {
-			'click': 'showDetails',
+			'click': 'toggleEvents'
 		},
 
 		render: function() {
@@ -26,8 +26,6 @@ function(Backbone,eventsView) {
 			this.$el.html( this.template(this.model.toJSON()) );
 			this.$elements.home = this.$el.find('.home');
 			this.$elements.away = this.$el.find('.away');
-			this.$elements.status = this.$el.find('.status');
-			//this.$elements.home.find('.flag').attr("src", this.model.get('home').team.flag);
 			//ViewEvents.render($elements.events);
 			return this;
 		},
@@ -41,8 +39,14 @@ function(Backbone,eventsView) {
 		},
 
 		updateStatus: function() {
-			this.$elements.status.html( this.template(this.model.status.toJSON()) );
+			//TODO
+			//toggle class maybe not
+			this.$el.toggleClass();
 		},
+
+		toggleEvents: function() {
+			this.$el.find('.events').slideToggle();
+		}
 
 
 

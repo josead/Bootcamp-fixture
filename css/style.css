@@ -84,6 +84,21 @@ header h1 {
 	font-size: 1rem;
 }
 
+.team .flag {
+	height: 22px;
+	width: 33px;
+	border: 1px solid #FFF;
+	box-shadow: 0 0 1px #000;
+}
+
+.place {
+	display: block;
+	background-color: #4A3;
+	clear:left; 
+	color: #FFF;
+	text-align: center;
+}
+
 .event-ico {
 	width: 15px;
 	height: 15px;
@@ -102,22 +117,8 @@ span.event-ico.rcard{
 
 .events {
 	font-size: 10px;
+	display:none;
 }
-
-.events.home {
-	width: 100%;
-	float:left;
-}
-
-.events.home b {
-	float:right;
-}
-
-.events.away {
-	width: 100%;
-	float:right;
-}
-
 
 ul {
 	
