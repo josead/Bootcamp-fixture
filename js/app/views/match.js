@@ -1,5 +1,5 @@
 define(['backbone','view/MatchEvents'],
-function (Backbone,eventsView) {
+function (Backbone,EventsView) {
 	return Backbone.View.extend({
 
 		tagName: 'div',
@@ -8,10 +8,12 @@ function (Backbone,eventsView) {
 
 		$elements: {},
 
-		viewEvents: '',
+		viewEvents: null,
 
 		initialize: function() {
-			viewEvents = new eventsView({collection: this.model.get('events')});
+			//console.log(this.model.get('events'));
+			
+			this.viewEvents = new EventsView({collection: this.model.get('events')});
 			this.model.on('change:home', this.updateHome, this);
 			this.model.on('change:away', this.updateAway, this);
 			this.model.on('change:status', this.updateStatus, this);
@@ -26,8 +28,10 @@ function (Backbone,eventsView) {
 
 			this.$el.html( this.template(this.model.toJSON()) );
 			this.$el.attr('status',this.model.get('status'));
-			viewEvents.render();
-			this.$el.append(viewEvents.el);
+
+			this.viewEvents.render();
+
+			this.$el.append(this.viewEvents.el);
 			this.$elements.home = this.$el.find('.home');
 			this.$elements.away = this.$el.find('.away');
 			return this;

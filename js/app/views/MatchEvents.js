@@ -16,18 +16,15 @@ function(Backbone) {
 		},
 
 		render: function () {
-			console.log(this);
+			//console.log(this);
 			this.collection.each(this.addOne,this);
 			return this;
 		},
 
 		addOne: function(e) {
-			console.log(e);
+			//console.log(e);
 			this.$el.append( this.template(e.toJSON()) );
 		}
-
-		
-		
 		
 	});
-})
+});
