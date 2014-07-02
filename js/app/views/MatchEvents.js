@@ -21,10 +21,6 @@ function(Backbone) {
 		},
 
 		addOne: function(e) {
-<<<<<<< HEAD
-=======
-			console.log(e);
->>>>>>> 3e92a0375b66bc61f183f9207265639e2b6920aa
 			this.$el.append( this.template(e.toJSON()) );
 		}
 		
