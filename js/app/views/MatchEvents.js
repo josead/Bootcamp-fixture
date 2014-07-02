@@ -1,7 +1,7 @@
 define(['backbone'],
 function(Backbone) {
 	return Backbone.View.extend({
-		tagName: 'div',
+		tagName: 'ul',
 
 		className: 'events',
 

@@ -13,16 +13,6 @@
 	width: 95%;
 }
 
-/* Laptop/Tablet (1024px) */
-@media only screen and (min-width: 600px) and (orientation: landscape) {
-	.app {
-		width: 600px;
-	}
-	header h1 {
-		font-size:50px;
-	}
-}
-
 html {
 	background: rgb(230,109,29); /* Old browsers */
 	background: -moz-linear-gradient(top, rgba(230,109,29,1) 0%, rgba(255,226,0,1) 100%); /* FF3.6+ */
@@ -101,19 +91,25 @@ header h1 {
 }
 
 .events {
+	position:relative;
 	font-size: 13px;
 	display:none;
+	margin:5px 0;
+	padding:0;
 }
 
-.events .event.home span.time{
+.events b.time {
 	text-align: center;
+	color:green;
+}
+
+.events .event.home b.time{
 	float: right;
 	padding-right: 50%;
 	margin-left: 10px;
 	margin-right: -16px;
 }
-.events .event.away span.time{
-	text-align: center;
+.events .event.away b.time{
 	float: left;
 	padding-left: 50%;
 	margin-right: 5px;
@@ -127,10 +123,6 @@ header h1 {
 
 .event.home{
 	text-align: right;
-}
-
-.event.home span.event-ico {
-	/*failure*/
 }
 
 .event-ico {
@@ -160,6 +152,7 @@ span.event-ico.goal , span.event-ico.goal-penalty{
 	background-image: url('../resources/icons/goal.png');
 }
 
+/* Menu Selector */
 
 #sectionsMenu ul {
 	
@@ -222,6 +215,7 @@ span.event-ico.goal , span.event-ico.goal-penalty{
 	position:relative;
 }
 
+
 .content.loading > * {
 	opacity: 0.6;
 }
@@ -230,6 +224,7 @@ span.event-ico.goal , span.event-ico.goal-penalty{
 	display:block;
 }
 
+/* Color transition animation */
 @-webkit-keyframes colours {
 	0% {color: rgba(230,109,29,1);}
 	50% {color: rgba(255,226,0,1) ;}
@@ -259,6 +254,7 @@ span.event-ico.goal , span.event-ico.goal-penalty{
 
 	text-shadow: 0px 0px 10px  #000;
 
+	/* Loader animation */
 	-webkit-animation-direction: normal;
 	-webkit-animation-duration: 5s;
 	-webkit-animation-iteration-count: infinite;
@@ -278,4 +274,14 @@ span.event-ico.goal , span.event-ico.goal-penalty{
 .empty {
 	font-weight: bold;
 	text-align: center;
+}
+
+/* Media replacements */
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+	.app {
+		width: 600px;
+	}
+	header h1 {
+		font-size:50px;
+	}
 }
