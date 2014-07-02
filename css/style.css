@@ -120,7 +120,7 @@ span.event-ico.rcard{
 	display:none;
 }
 
-ul {
+#sectionsMenu ul {
 	
 	list-style: none;
 	text-align: center;
@@ -131,10 +131,9 @@ ul {
 	border-radius: 20px 20px 0px 0px;
 	border-bottom: 2px solid #FFF ;
   box-shadow: 0 0 3px #002b52;
-
 }
 
-li {
+#sectionsMenu li {
 	margin-top: -5px;
 
 	height: auto;
@@ -152,14 +151,14 @@ li {
 	border-radius: 20px 20px 0px 0px;
 	color: #FFF;
   box-shadow: 0 0 3px #002b52;
-
 }
-li a {
+
+#sectionsMenu li a {
 	color: inherit;
 	text-decoration: none;
 }
 
-li:hover {
+#sectionsMenu li:hover ,#sectionsMenu li.active {
 	color: #0a487c;
 	background-color: #FFF;
 }
