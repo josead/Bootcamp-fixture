@@ -62,7 +62,8 @@
 			<script id='eventTemplate' type='text/template'>
 			<li class='event <%= team %>'>
 				<% if (team == 'home') { %>
-					<%= player %> <span class='event-ico <%= type_of_event %>'></span>
+					<%= player %>
+					<span class='event-ico <%= type_of_event %>'></span>
 				<% } else {%>
 					<span class='event-ico <%= type_of_event %>'></span> <%= player %>
 				<% } %>
