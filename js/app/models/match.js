@@ -1,7 +1,9 @@
 define(['backbone','collection/MatchEvents'],
   function (Backbone,MatchEvents){
 
-  return Backbone.Model.extend({
+  var teamFactory,
+
+  Match = Backbone.Model.extend({
     defaults: {
       'num': 0,
       'loc': 'unknown',
@@ -19,12 +21,12 @@ define(['backbone','collection/MatchEvents'],
       this.set('status', json.status);
 
       this.set('home', {
-        team: window.app.teams.getInstance({fifa_code:json.home_team.code,country:json.home_team.country}),
+        team: teamFactory.getInstance({fifa_code:json.home_team.code,country:json.home_team.country}),
         goals: json.home_team.goals,
         winning: false
       });
       this.set('away', {
-        team: window.app.teams.getInstance({fifa_code:json.away_team.code,country:json.away_team.country}),
+        team: teamFactory.getInstance({fifa_code:json.away_team.code,country:json.away_team.country}),
         goals: json.away_team.goals,
         winning: false
       });
@@ -70,4 +72,10 @@ define(['backbone','collection/MatchEvents'],
       this.set('winner',winner);
     }
   });
+
+  Match.setFactoryTeams = function(f){
+    teamFactory = f;
+  };
+
+  return Match;
 });

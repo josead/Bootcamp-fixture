@@ -32,16 +32,18 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
   // Main
 
   // Factories
-  window.app = {};
-  window.app.teams = new Factory(Team,'fifa_code');
-  window.app.matches = new Factory(Match,'match_number');
+  app = {};
+  app.teams = new Factory(Team,'fifa_code');
+  app.matches = new Factory(Match,'match_number');
 
+  // Set match dependency
+  Match.setFactoryTeams(app.teams);
   
   var collections = {},
     views = {};
 
   // Collections
-  collections.current = new FetchableCollection(app.matches,'matches/current');
+  collections.current = new FetchableCollection(app.matches,'matches/current',this);
   collections.today = new FetchableCollection(app.matches,'matches/today');
   collections.tomorrow = new FetchableCollection(app.matches,'matches/tomorrow');
   collections.all = new FetchableCollection(app.matches,'matches/?by_date=DESC');
@@ -66,7 +68,7 @@ function (Backbone, Team, Match, Factory, FetchableCollection, MatchesView){
       //"groups":               "groups",
       "teams":                "teams",
       //"team/:query":          "team",
-      "*actions":             "default", 
+      "*actions":             "default",
     },
     matchesPages:['current','today','tomorrow','all'],
 
