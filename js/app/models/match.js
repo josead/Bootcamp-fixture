@@ -50,7 +50,7 @@ define(['backbone','collection/MatchEvents'],
 
       this.refreshWinner();
 
-      this.get('events').update(json.home_team_events.goals,json.away_team_events);
+      this.get('events').update(json.home_team_events,json.away_team_events);
     },
     refreshWinner: function(){
       var winner = '';

@@ -9,6 +9,7 @@ function (Backbone){
 
       this.lastTime = this.last.time;
     },
+    size: 0,
     append: function(home,away,from){
       var buffer = [];
 
@@ -21,7 +22,7 @@ function (Backbone){
     },
     update: function(home,away){
       var _size = home.length + away.length;
-      if (this.size >= size ) return;
+      if (this.size >= _size ) return;
 
       this._add(this.append(home,away,this.lastTime));
       this.lastTime = this.last.time;
