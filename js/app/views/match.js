@@ -36,11 +36,11 @@ function (Backbone,EventsView) {
 		},
 
 		updateHome: function() {
-			this.$elements.home.html( this.template(this.model.get('home').toJSON()) );
+			this.$elements.home.html( this.template(this.model.get('home')) );
 		},
 
 		updateAway: function() {
-			this.$elements.away.html( this.template(this.model.get('away').toJSON()) );
+			this.$elements.away.html( this.template(this.model.get('away')) );
 		},
 
 		updateStatus: function() {
