@@ -21,7 +21,7 @@ function (Backbone, MatchView){
 		},
 
 		addOne: function (match) {
-			//this.$el.find('.empty').remove();
+			this.$el.find('.empty').remove();
 			var matchView = new MatchView({ model: match });
 			this.$el.append(matchView.render().el);
 		}

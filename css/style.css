@@ -221,7 +221,7 @@ span.event-ico.goal , span.event-ico.goal-penalty{
 .match[status="completed"] .circleStatus {
 	background-color: green;
 }
-.match[status="in-process"] .circleStatus {
+.match[status="in progress"] .circleStatus {
 	-webkit-animation-direction: normal;
 	-webkit-animation-duration: 5s;
 	-webkit-animation-iteration-count: infinite;
