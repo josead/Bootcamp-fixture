@@ -15,7 +15,6 @@ function (Backbone,EventsView) {
 			this.model.on('change:home', this.updateHome, this);
 			this.model.on('change:away', this.updateAway, this);
 			this.model.on('change:status', this.updateStatus, this);
-			// this on destroy if you dont wanna follow this match anymore
 		},
 
 		events: {
@@ -32,6 +31,7 @@ function (Backbone,EventsView) {
 			this.$el.append(this.viewEvents.el);
 			this.$elements.home = this.$el.find('.home');
 			this.$elements.away = this.$el.find('.away');
+
 			return this;
 		},
 

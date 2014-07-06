@@ -19,7 +19,7 @@ define(['backbone','collection/MatchEvents'],
       this.set('loc', json.location);
       this.set('date', json.datetime);
       this.set('status', json.status);
-
+      this.set('winner', json.winner);
       this.set('home', {
         team: teamFactory.getInstance({fifa_code:json.home_team.code,country:json.home_team.country}),
         goals: json.home_team.goals,
@@ -33,7 +33,7 @@ define(['backbone','collection/MatchEvents'],
 
       this.set('events', new MatchEvents(json.home_team_events,json.away_team_events));
 
-      this.refreshWinner();
+      //this.refreshWinner();
     },
     hasEnded: function(){
       return ( this.status == 'completed');
@@ -50,7 +50,7 @@ define(['backbone','collection/MatchEvents'],
       this.get('home').goals = json.home_team.goals;
       this.get('away').goals = json.away_team.goals;
 
-      this.refreshWinner();
+      //this.refreshWinner();
 
       this.get('events').update(json.home_team_events,json.away_team_events);
     },
