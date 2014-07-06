@@ -204,10 +204,20 @@ span.event-ico.goal , span.event-ico.goal-penalty{
 	display:none;
 }
 
+.winner{
+	text-align: center;
+	background-color: #FFA;
+	display: block;
+
+	margin-bottom: 5px;
+
+}
+
 /* Circle status */
 
 .circleStatus {
 	position:absolute;
+	margin: 4px;
 	right:10px;
 	width: 10px;
 	height: 10px;
